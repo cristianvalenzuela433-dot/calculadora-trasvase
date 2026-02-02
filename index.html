@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Trasvase | TK-002 & TK-Slop</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="industrial-theme">
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <h1>TRASVASE TK-SLOP ➔ TK-002</h1>
+                <p id="current-date">--/--/---- --:--:--</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="visualizer">
+                <!-- Tank Slop (Source) -->
+                <div class="tank-container" id="container-tkslop">
+                    <div class="tank-label">TK-SLOP</div>
+                    <div class="tank">
+                        <div class="tank-fill" id="fill-tkslop"></div>
+                        <div class="tank-level-text" id="level-text-tkslop">0%</div>
+                    </div>
+                    <div class="tank-stats">
+                        <p>Volumen: <span id="vol-tkslop">0</span> m³</p>
+                    </div>
+                </div>
+
+                <div class="transfer-pipeline">
+                    <div class="pipe">
+                        <div class="flow-indicator" id="flow-indicator"></div>
+                    </div>
+                </div>
+
+                <!-- Tank 002 (Destination) -->
+                <div class="tank-container" id="container-tk002">
+                    <div class="tank-label">TK-002</div>
+                    <div class="tank">
+                        <div class="tank-fill" id="fill-tk002"></div>
+                        <div class="tank-level-text" id="level-text-tk002">0 mm</div>
+                    </div>
+                    <div class="tank-stats">
+                        <p>Volumen: <span id="vol-tk002">0</span> m³</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="summary-panel">
+                <div class="summary-card">
+                    <h3>Volumen Final TK-002</h3>
+                    <div class="value"><span id="total-vol">0.00</span> <small>m³</small></div>
+                </div>
+                <div class="summary-card highlight">
+                    <h3>TVR Mezcla Resultante</h3>
+                    <div class="value"><span id="mixture-tvr">0.00</span> <small>PSIA</small></div>
+                </div>
+            </section>
+
+            <section class="controls">
+                <div class="control-group">
+                    <h2>Datos TK-SLOP (Origen)</h2>
+                    <div class="input-grid">
+                        <div class="input-field">
+                            <label>Capacidad Total (m³)</label>
+                            <input type="number" id="cap-tkslop" value="250" readonly class="locked">
+                        </div>
+                        <div class="input-field">
+                            <label>Nivel Actual (%)</label>
+                            <input type="number" id="level-percent-tkslop" value="58.8" step="0.1">
+                        </div>
+                        <div class="input-field">
+                            <label>Volumen Actual (m³)</label>
+                            <input type="number" id="init-vol-tkslop" value="147.00" readonly class="locked">
+                        </div>
+                        <div class="input-field">
+                            <label>TVR (PSIA)</label>
+                            <input type="number" id="tvr-tkslop" value="15.5" step="0.01">
+                        </div>
+                        <div class="input-field">
+                            <label>Trasvase (%)</label>
+                            <input type="number" id="transfer-percent" value="10" step="0.1">
+                        </div>
+                        <div class="input-field">
+                            <label>Trasvase (m³)</label>
+                            <input type="number" id="transfer-amount" value="25.0" step="0.1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h2>Datos TK-002 (Destino)</h2>
+                    <div class="input-grid">
+                        <div class="input-field">
+                            <label>Capacidad Total (m³)</label>
+                            <input type="number" id="cap-tk002" value="5109" readonly class="locked">
+                        </div>
+                        <div class="input-field">
+                            <label>Altura Total (mm)</label>
+                            <input type="number" id="height-mm-tk002" value="12500" readonly class="locked">
+                        </div>
+                        <div class="input-field">
+                            <label>Nivel Actual (mm)</label>
+                            <input type="number" id="level-mm-tk002" value="1500" step="1">
+                        </div>
+                        <div class="input-field">
+                            <label>Volumen Actual (m³)</label>
+                            <input type="number" id="init-vol-tk002" value="613.08" readonly class="locked">
+                        </div>
+                        <div class="input-field">
+                            <label>TVR (PSIA)</label>
+                            <input type="number" id="tvr-tk002" value="10.8" step="0.01">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group full-width">
+                    <div class="operation-grid single-button">
+                        <button id="start-btn" class="primary-btn">TRASVASE</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
